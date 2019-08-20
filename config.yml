@@ -1,0 +1,17 @@
+flask:
+    DEBUG: True
+    TESTING: True
+    CSRF_ENABLED: False
+    SECRET: supersecret
+    CELERY_BROKER_URL: redis://localhost:6379/0
+    CELERY_RESULT_BACKEND: redis://localhost:6379/0'
+
+frontend_broker:
+    BROKER_URL: redis://localhost:6379/0
+    CELERY_RESULT_BACKEND: redis://localhost:6379/0
+    CELERY_DEFAULT_QUEUE: frontend
+
+backend_broker:
+    BROKER_URL: redis://localhost:6379/0
+    CELERY_RESULT_BACKEND: redis://localhost:6379/0
+    CELERY_DEFAULT_QUEUE: engine
