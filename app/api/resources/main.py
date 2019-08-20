@@ -3,7 +3,8 @@ from flask_restplus import Resource, Namespace
 from celery.utils.log import get_task_logger
 
 from app.api import factory
-import app.api.tasks.frontendtasks as mdr
+
+from app.api.tasks import frontendtasks
 
 
 api = Namespace(name='', description='Main API namespace.')
@@ -28,7 +29,7 @@ class ByeWorld(Resource):
 
     def get(self, name):
         """Get method."""
-        mdr.toto()
+        frontendtasks.toto()
 
         self.asynchronous.apply_async((name,))
         return {'bye': name}
