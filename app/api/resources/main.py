@@ -2,8 +2,8 @@ from time import sleep
 from flask_restplus import Resource, Namespace
 from celery.utils.log import get_task_logger
 
-from api import factory
-import api.tasks.frontendtasks as mdr
+from app.api import factory
+import app.api.tasks.frontendtasks as mdr
 
 
 api = Namespace(name='', description='Main API namespace.')

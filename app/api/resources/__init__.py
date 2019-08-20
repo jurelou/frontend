@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restplus import Api
 
-from api.resources.main import api as main
+from app.api.resources.main import api as main
 
 blueprint = Blueprint('api', __name__, url_prefix='/api')
 

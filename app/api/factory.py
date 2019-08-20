@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from celery import Celery
 
-from config import config
+from app.config import config
 
 
 class Factory(object):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from api import factory
+from app.api import factory
 
 app = factory.flask
 

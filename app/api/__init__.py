@@ -1,4 +1,4 @@
-from api.factory import Factory
+from app.api.factory import Factory
 
 factory = Factory()
 factory.set_flask()
