@@ -9,7 +9,7 @@ from app.api.tasks import frontendtasks
 
 api = Namespace(name='', description='Main API namespace.')
 logger = get_task_logger(__name__)
-celery = factory.frontend_broker
+front_app = factory.frontend_app
 
 
 @api.route('/hello/<name>')
@@ -31,11 +31,11 @@ class ByeWorld(Resource):
         """Get method."""
         frontendtasks.toto()
 
-        self.asynchronous.apply_async((name,))
-        return {'bye': name}
+        self.asynchronous.apply_async(queue="frontend_app")
+        return {'bye': "name"}
 
-    @celery.task(bind=True)
-    def asynchronous(self, name):
+    @front_app.task()
+    def asynchronous():
         """Async long task method."""
         sleep(1)
         """
@@ -43,4 +43,4 @@ class ByeWorld(Resource):
                           meta={'current': "i", 'total': "total",
                                 'status': "message"})        
         """
-        return {'async': name}
+        return {'async': "name"}

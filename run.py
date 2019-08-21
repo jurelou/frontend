@@ -4,7 +4,7 @@ from app.api import factory
 
 app = factory.flask
 
-frontend_worker = factory.frontend_broker
+frontend_app = factory.frontend_app
 
 if __name__ == '__main__':
 	app.run()

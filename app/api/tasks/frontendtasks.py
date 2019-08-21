@@ -1,9 +1,10 @@
 from app.api import factory
 
-front = factory.frontend_broker
-back = factory.engine_broker
+front = factory.frontend_app
+engine = factory.engine_app
+scan = factory.scan_app
 
 def toto():
 	print("Sending task to engine")
-	back.send_task("opulence.engine.run.add")
-	pass
+	engine.send_task("engine.engine_app.ping")
+	scan.send_task("engine.scan_app.add")

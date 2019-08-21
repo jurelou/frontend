@@ -3,15 +3,23 @@ flask:
     TESTING: True
     CSRF_ENABLED: False
     SECRET: supersecret
-    CELERY_BROKER_URL: redis://localhost:6379/0
-    CELERY_RESULT_BACKEND: redis://localhost:6379/0'
+    CELERY_BROKER_URL: redis://
+    CELERY_RESULT_BACKEND: redis://
 
-frontend_broker:
-    BROKER_URL: redis://localhost:6379/0
-    CELERY_RESULT_BACKEND: redis://localhost:6379/0
-    CELERY_DEFAULT_QUEUE: frontend
+frontend_app:
+    name: frontend_app
+    broker_url: redis://
+    result_backend: redis://
+    task_default_queue: frontend_app
 
-backend_broker:
-    BROKER_URL: redis://localhost:6379/0
-    CELERY_RESULT_BACKEND: redis://localhost:6379/0
-    CELERY_DEFAULT_QUEUE: engine
+engine_app:
+    name: engine_app
+    broker_url: redis://
+    result_backend: redis://
+    task_default_queue: engine_app
+
+scan_app:
+    name: scan_app
+    broker_url: redis://
+    result_backend: redis://
+    task_default_queue: scan_app
